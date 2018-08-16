@@ -6,8 +6,15 @@ import bodyParser from 'body-parser'
 const app = express(),
       publicDir = express.static( path.join(__dirname, 'public') )
 
+/*app.use('/api/questions', question)
+app.use('/api/auth', auth)*/
+
 // Routing
-app.use(publicDir)
+app
+  .use(publicDir)
+  .get('/', (req, res) => {
+    res.sendfile( path.join(publicDir, 'index.html') )
+  })
 
 //if (process.env.NODE_ENV === 'development') {
   app.use((req, res, next) => {
@@ -17,11 +24,5 @@ app.use(publicDir)
     next()
   })
 //}
-
-app.get('/', (req, res) => {
-  res.sendfile( path.join(__dirname, 'public', 'index.html') )
-})
-/*app.use('/api/questions', question)
-app.use('/api/auth', auth)*/
 
 export default app
