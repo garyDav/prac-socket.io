@@ -1,13 +1,9 @@
 import express from 'express'
 import path from 'path'
 import bodyParser from 'body-parser'
-//import { question, auth } from './routes'
 
 const app = express(),
       publicDir = express.static( path.join(__dirname, 'public') )
-
-/*app.use('/api/questions', question)
-app.use('/api/auth', auth)*/
 
 // Routing
 app
