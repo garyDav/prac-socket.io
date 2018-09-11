@@ -5,6 +5,9 @@ body {
   color: #263238;
   background-color: #fff3e003;
 }
+p::selection {
+  background-color: rgba(216, 118, 32, 0.557);
+}
 
 .container {
   margin: 32px auto;
